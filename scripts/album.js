@@ -69,7 +69,6 @@ var albumPicasso = {
      albumArtist.firstChild.nodeValue = album.artist;
      albumReleaseInfo.firstChild.nodeValue = album.year + ' ' + album.label;
      albumImage.setAttribute('src', album.albumArtUrl);
-
      albumSongList.innerHTML = '';
 
      for (var i = 0; i < album.songs.length; i++) {
@@ -80,7 +79,7 @@ var albumPicasso = {
  var findParentByClassName = function(element, targetClass) {
     if (element) {
         var currentParent = element.parentElement;
-        while (currentParent.className !== targetClass && currentParent.className !== null) {
+          while (currentParent.className !== targetClass && currentParent.className !== null) {
             currentParent = currentParent.parentElement;
         }
         return currentParent;
@@ -135,7 +134,6 @@ var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause">
      songListContainer.addEventListener('mouseover', function(event) {
        if (event.target.parentElement.className === 'album-view-song-item') {
          var songItem = getSongItem(event.target);
-
             if (songItem.getAttribute('data-song-number') !== currentlyPlayingSong) {
                 songItem.innerHTML = playButtonTemplate;
             }
@@ -143,15 +141,13 @@ var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause">
        }
      });
 
-
      var songRows = document.getElementsByClassName('album-view-song-item');
-
      var albums = [albumPicasso, albumMarconi, albumSmashingPumpkins];
      var index = 1;
 
      for (var i = 0; i < songRows.length; i++) {
          songRows[i].addEventListener('mouseleave', function(event) {
-           // #1
+            // #1
             var songItem = getSongItem(event.target);
             var songItemNumber = songItem.getAttribute('data-song-number');
             // #2
