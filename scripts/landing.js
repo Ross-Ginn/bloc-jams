@@ -1,22 +1,19 @@
 
 
-var revealPoint = function() {
-       $(this).css({
-           opacity: 1,
-           transform: 'scaleX(1) translateY(0)'
-       });
-};
-
 var animatePoints = function() {
-  forEach(points, revealPoint);
+  var revealPoint = function() {
+         $(this).css({
+             opacity: 1,
+             transform: 'scaleX(1) translateY(0)'
+         });
+  };
+  $.each($('.point'), revealPoint);
 };
 
-$.each($('.point'), revealPoint);
 
 $(window).load(function() {
     if (window.innerHeight > 950) {
-        animatePoints(pointsArray);
-
+        animatePoints();
     }
 
     var scrollDistance = $('.selling-points').offset().top - $(window).height() + 200;
